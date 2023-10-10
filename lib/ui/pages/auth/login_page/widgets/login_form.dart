@@ -5,6 +5,8 @@ import 'package:flutter_blog/_core/utils/validator_util.dart';
 import 'package:flutter_blog/ui/widgets/custom_auth_text_form_field.dart';
 import 'package:flutter_blog/ui/widgets/custom_elavated_button.dart';
 
+// 1. 프로바이더에 접근하려면 ref 객체가 필요하다.
+// 2. StatelessWidget에서 ConsumerWidget으로 변경하면 된다.
 class LoginForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final _username = TextEditingController();
