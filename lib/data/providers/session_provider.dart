@@ -23,6 +23,7 @@ class SessionUser {
 
   SessionUser();
 
+  // 로그인
   Future<void> login(LoginReqDTO loginReqDTO) async {
     Logger().d("login");
 
