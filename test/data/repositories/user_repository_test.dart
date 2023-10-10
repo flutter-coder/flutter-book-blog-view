@@ -6,7 +6,26 @@ import 'package:flutter_blog/data/models/user.dart';
 import 'package:logger/logger.dart';
 
 void main() async {
-  await fetchLogin_test();
+  await fetchJoin_test();
+}
+
+Future<void> fetchJoin_test() async {
+  // given
+  JoinReqDTO requestDTO =
+      JoinReqDTO(username: "meta", password: "1234", email: "meta@nate.com");
+
+  // when
+  try {
+    Response response = await dio.post("/join", data: requestDTO.toJson());
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+    responseDTO.data = User.fromJson(responseDTO.data);
+
+    // then
+    Logger().d(responseDTO.code);
+    Logger().d(responseDTO.msg);
+  } catch (e) {
+    Logger().d("통신 실패");
+  }
 }
 
 Future<void> fetchLogin_test() async {

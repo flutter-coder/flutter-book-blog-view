@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blog/data/models/post.dart';
 
 class PostListItem extends StatelessWidget {
-  const PostListItem({Key? key}) : super(key: key);
+  // 1. 생성자로 post 데이터를 전달 받습니다.
+  final Post post;
+  const PostListItem(this.post, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text("제목", style: TextStyle(fontWeight: FontWeight.bold)),
+      // 2. 제목을 추가해줍니다.
+      title: Text(post.title, style: TextStyle(fontWeight: FontWeight.bold)),
+      // 3. 내용을 추가해줍니다.
       subtitle: Text(
-        "내용",
+        post.content,
         style: TextStyle(color: Colors.black45),
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
